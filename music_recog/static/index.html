@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Recognition</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.min.js"></script>
+    <script src="/static/script.js" defer></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        #result {
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+        }
+        .listening-animation {
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            border-radius: 50%;
+            margin: 20px auto;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Music Recognition</h1>
+    <p>Welcome to the Music Recognition app!</p>
+    <div id="controls">
+        <button id="startRecording">Start Recording</button>
+        <div id="listening" style="display: none;">
+            <div class="listening-animation"></div>
+            <p>Listening...</p>
+        </div>
+    </div>
+    <h2>Result</h2>
+    <div id="result">
+        <div id="song-info" style="display: none;">
+            <img id="album-art" src="" alt="Album Art" style="width: 200px; height: 200px;">
+            <h3 id="song-title"></h3>
+            <p id="song-artist"></p>
+            <p id="song-album"></p>
+            <p id="song-genre"></p>
+            <p id="song-release-date"></p>
+            <div id="song-links"></div>
+            <div id="song-lyrics"></div>
+        </div>
+        <div id="loading" style="display: none;">Processing...</div>
+        <div id="error" style="display: none;"></div>
+    </div>
+</body>
+
+</html>
